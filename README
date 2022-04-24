@@ -1,0 +1,10 @@
+Overview
+========
+
+It is used for tracking the latest releases of opensource projects. Currently
+it can track the upstream and fedora streams.
+
+To track more opensource projects, add the projects url to main.cpp:upstream_project_urls.
+
+To track more upstreams, for example rhel, implement the class as fedora_tracker or
+upstream_tracker, then register it in tracker::init().
