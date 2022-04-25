@@ -2,7 +2,6 @@
 #include <string>
 #include <cstdio>
 #include "tracker.h"
-#include "upstream_tracker.h"
 
 std::string upstream_project_urls[][3] = {
 	{"crash upstream", "crash-", "https://github.com/crash-utility/crash"},
@@ -11,6 +10,7 @@ std::string upstream_project_urls[][3] = {
 	{"kexec-tools upstream", "v200[6-8][0-9]{4}", "https://git.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git"},
 	{"kexec-tools fedora", "", "https://src.fedoraproject.org/rpms/kexec-tools/raw/rawhide/f/kexec-tools.spec"},
 	{"kexec-tools rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/kexec-tools/plain/kexec-tools.spec?h=rhel-9-main"},
+	{"makedumpfile upstream", "pubkey|start|Released|DEVEL", "https://github.com/makedumpfile/makedumpfile.git"},
 	{"irqbalance upstream", "", "https://github.com/Irqbalance/irqbalance.git"},
 	{"irqbalance fedora", "", "https://src.fedoraproject.org/rpms/irqbalance/raw/rawhide/f/irqbalance.spec"},
 	{"irqbalance rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/irqbalance/plain/irqbalance.spec?h=rhel-9-main"},

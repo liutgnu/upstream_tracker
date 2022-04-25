@@ -2,7 +2,7 @@ Overview
 ========
 
 It is used for tracking the latest releases of opensource projects. Currently
-it can track the upstream and fedora streams.
+it can track the upstream, fedora and rhel streams.
 
 To track more opensource projects, add the projects url to main.cpp:upstream_project_urls.
 

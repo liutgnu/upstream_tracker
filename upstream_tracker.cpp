@@ -20,7 +20,7 @@ void Upstream_Tracker::display() {
 string Upstream_Tracker::do_query(string url) {
 	char buffer[512];
 
-	string cmd = "git ls-remote --sort='version:refname' --tags " + url;
+	string cmd = "git ls-remote --sort='version:refname' --tags " + url + "| sed 's/refs\\/tags\\///g'";
 	unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd.c_str(), "r"), pclose);
 
 	if (!pipe) {
