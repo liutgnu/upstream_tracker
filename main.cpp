@@ -26,7 +26,9 @@ int main(int argc, char **argv)
 	     i += 1) {
 		std::cout << "===" + upstream_project_urls[i][0] + "===" << std::endl;
 		Tracker t(upstream_project_urls[i][0], upstream_project_urls[i][2], upstream_project_urls[i][1]);
-		std::cout << t.init()->query() << std::endl;
+		Tracker *p = t.init();
+		std::cout << p->query() << std::endl;
+		delete p;
 	}
 	return 0;
 }
