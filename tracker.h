@@ -10,6 +10,7 @@ class Tracker {
 	string url;
 	string filter;
 	vector<char> delimits;
+	string version;
 
 	public:
 	Tracker(const string& name, const string& url, const string filter): 
@@ -24,5 +25,6 @@ class Tracker {
 
 	Tracker *init();
 
-	virtual string query() { return ""; };
+	virtual void query() { return; };
+	virtual void display() { return; };
 };

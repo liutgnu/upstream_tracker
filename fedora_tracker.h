@@ -9,7 +9,8 @@ class Fedora_Tracker : public Tracker {
 	Fedora_Tracker(const string& name, const string& url, const string& filter):
 		Tracker(name, url, filter) { }
 
-	string query();
+	void query();
+	void display();
 
 	private:
 	string do_query(string url);

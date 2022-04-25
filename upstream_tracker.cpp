@@ -6,11 +6,15 @@
 #include <memory>
 #include "string_splitor.h"
 
-string Upstream_Tracker::query() {
+void Upstream_Tracker::query() {
 	if (filter != "")
-		return do_query(url + "| egrep -v '" + filter + "'");
+		version = do_query(url + "| egrep -v '" + filter + "'");
 	else
-		return do_query(url);
+		version = do_query(url);
+}
+
+void Upstream_Tracker::display() {
+	printf("\n%#25s:%#25s", split(name, delimits)[0].c_str(), version.c_str());
 }
 
 string Upstream_Tracker::do_query(string url) {
