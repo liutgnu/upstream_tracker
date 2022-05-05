@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
+#include <future>
+#include <thread>
+#include <tuple>
 #include "tracker.h"
 
 std::string upstream_project_urls[][3] = {
@@ -31,14 +34,19 @@ std::string upstream_project_urls[][3] = {
 int main(int argc, char **argv)
 {
 	printf("%#51s%#25s%#25s","Upstream", "Fedora rawhide", "Rhel 9-main");
+	std::vector<std::tuple<Tracker *, std::future<void>>> tracker_future_list;
+
 	for (int i = 0; 
 	     i < sizeof(upstream_project_urls)/sizeof(upstream_project_urls[0]); 
 	     i += 1) {
 		Tracker t(upstream_project_urls[i][0], upstream_project_urls[i][2], upstream_project_urls[i][1]);
 		Tracker *p = t.init();
-		p->query();
-		p->display();
-		delete p;
+		tracker_future_list.push_back(make_tuple(p, std::async(std::launch::async, &Tracker::query, p)));
+	}
+	for (auto&& it:tracker_future_list) {
+		get<1>(it).get();
+		get<0>(it)->display();
+		delete(get<0>(it));
 	}
 	std::cout << endl;
 	return 0;
