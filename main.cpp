@@ -29,6 +29,22 @@ std::string upstream_project_urls[][3] = {
 	{"crash-gcore-command upstream", "", "https://github.com/fujitsu/crash-gcore.git"},
 	{"crash-gcore-command fedora", "", "https://src.fedoraproject.org/rpms/crash-gcore-command/raw/rawhide/f/crash-gcore-command.spec"},
 	{"crash-gcore-command rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/crash-gcore-command/plain/crash-gcore-command.spec?h=rhel-9-main"},
+	{"dmidecode upstream", "", "https://github.com/mirror/dmidecode.git"},
+	{"dmidecode fedora", "", "https://src.fedoraproject.org/rpms/dmidecode/raw/rawhide/f/dmidecode.spec"},
+	{"dmidecode rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/dmidecode/plain/dmidecode.spec?h=rhel-9-main"},
+	{"py-dmidecode upstream", "", "https://github.com/nima/python-dmidecode.git"},
+	{"py-dmidecode fedora", "", "https://src.fedoraproject.org/rpms/python-dmidecode/raw/rawhide/f/python-dmidecode.spec"},
+	{"py-dmidecode rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/python-dmidecode/plain/python-dmidecode.spec?h=rhel-9-main"},
+	//{"libtopology"},
+	{"numactl upstream", "", "https://github.com/numactl/numactl.git"},
+	{"numactl fedora", "", "http://pkgs.devel.redhat.com/cgit/rpms/numactl/plain/numactl.spec?h=rhel-9-main"},
+	{"numactl rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/numactl/plain/numactl.spec?h=rhel-9-main"},
+	{"numatop upstream", "", "https://github.com/intel/numatop.git"},
+	{"numatop fedora", "", "https://src.fedoraproject.org/rpms/numatop/raw/rawhide/f/numatop.spec"},
+	{"numatop rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/numatop/plain/numatop.spec?h=rhel-9-main"},
+	{"snappy upstream", "", "https://github.com/google/snappy.git"},
+	{"snappy fedora", "", "https://src.fedoraproject.org/rpms/snappy/raw/rawhide/f/snappy.spec"},
+	{"snappy rhel", "", "http://pkgs.devel.redhat.com/cgit/rpms/snappy/plain/snappy.spec?h=rhel-9-main"},
 };
 
 int main(int argc, char **argv)
