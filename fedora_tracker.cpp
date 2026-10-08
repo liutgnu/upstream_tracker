@@ -9,17 +9,31 @@
 using namespace std;
 
 void Fedora_Tracker::query() {
-	version = do_query(url);
+	if (url != "")
+		version = do_query(url);
+	else
+		version = "";
 }
 
 void Fedora_Tracker::display() {
-	printf("%#25s", version.c_str());
+	printf("%#26s", version.c_str());
 }
 
 string Fedora_Tracker::do_query(string url) {
 	char buffer[512];
 	string res;
-	string cmd = "bash -c 'rpmspec -P <(curl -s " + url + ") 2>/dev/null | egrep \"^(Version|Release)\" | sed \"s/$(rpm --eval %{?dist})//g\"'";
+
+	string cmd =
+	"bash -c '"
+	"tmp=$(mktemp) || exit 1; "
+	"trap \"rm -f \\\"$tmp\\\"\" EXIT; "
+	"curl -sk \"" + url + "\" -o \"$tmp\" && "
+	"sed -E -i \"s/^([[:space:]]*)%patch([0-9]+)([[:space:]]|$)/\\\\1%patch -P \\\\2\\\\3/\" \"$tmp\" && "
+	"rpmspec -P \"$tmp\" 2>/dev/null | "
+	"grep -E \"^(Version|Release)\" | "
+	"sed \"s/$(rpm --eval %{?dist})//g\""
+	"'";
+
 	unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd.c_str(), "r"), pclose);
 
 	if (!pipe) {

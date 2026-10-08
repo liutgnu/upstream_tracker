@@ -8,13 +8,13 @@
 
 void Upstream_Tracker::query() {
 	if (filter != "")
-		version = do_query(url + "| egrep -v '" + filter + "'");
+		version = do_query(url + "| grep -E -v '" + filter + "'");
 	else
 		version = do_query(url);
 }
 
 void Upstream_Tracker::display() {
-	printf("\n%#25s:%#25s", split(name, delimits)[0].c_str(), version.c_str());
+	printf("\n%#25s:%#26s", split(name, delimits)[0].c_str(), version.c_str());
 }
 
 string Upstream_Tracker::do_query(string url) {

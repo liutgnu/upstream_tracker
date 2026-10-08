@@ -19,6 +19,7 @@ class Tracker {
 		delimits.push_back('\t');
 		delimits.push_back('\n');
 		delimits.push_back('%');
+		delimits.push_back(':');
 	}
 
 	~Tracker() { }
