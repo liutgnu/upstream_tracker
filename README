@@ -8,3 +8,9 @@ To track more opensource projects, add the projects url to main.cpp:upstream_pro
 
 To track more upstreams, for example rhel, implement the class as fedora_tracker or
 upstream_tracker, then register it in tracker::init().
+
+Usage
+=====
+
+$ kinit
+$ docker --rm ghcr.io/liutgnu/upstream_tracker:latest
